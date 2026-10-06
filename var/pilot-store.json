@@ -1,0 +1,337 @@
+{
+  "artifacts": {
+    "ART-SMART-ALG": {
+      "artifact_id": "ART-SMART-ALG",
+      "digest": "sha256:9f2c",
+      "display_name": "智能代数练习组件",
+      "capabilities": {
+        "data_formats": [
+          "xAPI-1.0",
+          "CMS-COURSE-v2"
+        ],
+        "language_packs": [
+          "zh-CN",
+          "vi-VN",
+          "th-TH"
+        ],
+        "runtime_capabilities": [
+          "offline_mode",
+          "low_bandwidth"
+        ]
+      },
+      "dependencies": [
+        {
+          "name": "lrs-gateway",
+          "constraint": ">=2.1 <3.0",
+          "optional": false
+        }
+      ],
+      "registered_by": "registry-bot",
+      "registered_at": "2026-10-06T18:43:15.134659+00:00"
+    }
+  },
+  "plans": {
+    "PLAN-6a4deaaa8075": {
+      "plan_id": "PLAN-6a4deaaa8075",
+      "artifact_id": "ART-SMART-ALG",
+      "school_id": "SCH-HANOI-01",
+      "revision": 1,
+      "settings": {
+        "language_pack": "vi-VN",
+        "data_format": "xAPI-1.0",
+        "runtime_features": [
+          "low_bandwidth"
+        ]
+      },
+      "status": "ACTIVE",
+      "created_by": "ops-li",
+      "created_at": "2026-10-06T18:43:15.139399+00:00"
+    },
+    "PLAN-7f57f4cb6147": {
+      "plan_id": "PLAN-7f57f4cb6147",
+      "artifact_id": "ART-SMART-ALG",
+      "school_id": "SCH-BANGKOK-02",
+      "revision": 1,
+      "settings": {
+        "language_pack": "th-TH",
+        "data_format": "CMS-COURSE-v2",
+        "runtime_features": [
+          "offline_mode"
+        ]
+      },
+      "status": "ACTIVE",
+      "created_by": "ops-li",
+      "created_at": "2026-10-06T18:43:15.146958+00:00"
+    }
+  },
+  "pilots": {
+    "PILOT-ce60c6b8d19b": {
+      "pilot_id": "PILOT-ce60c6b8d19b",
+      "artifact_id": "ART-SMART-ALG",
+      "school_id": "SCH-HANOI-01",
+      "plan_id": "PLAN-6a4deaaa8075",
+      "stage": "OBSERVATION",
+      "status": "FROZEN",
+      "created_by": "ops-li",
+      "created_at": "2026-10-06T18:43:15.152225+00:00",
+      "updated_at": "2026-10-06T18:43:15.241091+00:00",
+      "evidence": [
+        {
+          "evidence_id": "EV-6e1b0c27824c",
+          "stage": "COMPATIBILITY_CHECK",
+          "metrics": {
+            "data_format_match": 1.0,
+            "language_pack_coverage": 0.98
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.162849+00:00",
+          "expires_at": "2026-10-09T18:43:15.162849+00:00",
+          "note": ""
+        },
+        {
+          "evidence_id": "EV-25af4dd9ca86",
+          "stage": "SMALL_SCALE_VALIDATION",
+          "metrics": {
+            "success_rate": 0.62,
+            "error_count": 41
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.177415+00:00",
+          "expires_at": "2026-10-09T18:43:15.177415+00:00",
+          "note": ""
+        },
+        {
+          "evidence_id": "EV-5888bc5382da",
+          "stage": "COMPATIBILITY_CHECK",
+          "metrics": {
+            "data_format_match": 1.0,
+            "language_pack_coverage": 0.99,
+            "runtime_capability": 1.0
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.185838+00:00",
+          "expires_at": "2026-10-09T18:43:15.185838+00:00",
+          "note": ""
+        },
+        {
+          "evidence_id": "EV-ba38986d828f",
+          "stage": "SMALL_SCALE_VALIDATION",
+          "metrics": {
+            "success_rate": 0.97,
+            "error_count": 2
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.194830+00:00",
+          "expires_at": "2026-10-09T18:43:15.194830+00:00",
+          "note": ""
+        }
+      ],
+      "transitions": [
+        {
+          "kind": "ADVANCE",
+          "from_stage": "COMPATIBILITY_CHECK",
+          "to_stage": "SMALL_SCALE_VALIDATION",
+          "actor": "ops-li",
+          "reason": "兼容检查通过（运行能力指标限时豁免）",
+          "at": "2026-10-06T18:43:15.172709+00:00"
+        },
+        {
+          "kind": "ROLLBACK",
+          "from_stage": "SMALL_SCALE_VALIDATION",
+          "to_stage": "COMPATIBILITY_CHECK",
+          "actor": "ops-li",
+          "reason": "小规模验证成功率不达标，回退复测",
+          "at": "2026-10-06T18:43:15.181958+00:00"
+        },
+        {
+          "kind": "ADVANCE",
+          "from_stage": "COMPATIBILITY_CHECK",
+          "to_stage": "SMALL_SCALE_VALIDATION",
+          "actor": "ops-li",
+          "reason": "复测通过",
+          "at": "2026-10-06T18:43:15.190636+00:00"
+        },
+        {
+          "kind": "ADVANCE",
+          "from_stage": "SMALL_SCALE_VALIDATION",
+          "to_stage": "OBSERVATION",
+          "actor": "ops-li",
+          "reason": "小规模验证通过",
+          "at": "2026-10-06T18:43:15.199488+00:00"
+        },
+        {
+          "kind": "FREEZE",
+          "from_stage": "OBSERVATION",
+          "to_stage": "OBSERVATION",
+          "actor": "sec-wu",
+          "reason": "组件在弱网下泄漏学生答题缓存",
+          "at": "2026-10-06T18:43:15.241091+00:00"
+        }
+      ],
+      "exemptions": [
+        {
+          "exemption_id": "EXM-70812be570f7",
+          "requirement": "runtime_capability",
+          "approver": "eng-zhao",
+          "approver_role": "INTEGRATION_ENGINEER",
+          "reason": "目标教室暂以兼容模式运行，48 小时内补测",
+          "issued_at": "2026-10-06T18:43:15.167653+00:00",
+          "expires_at": "2026-10-08T18:43:15.167653+00:00"
+        }
+      ],
+      "recall_id": "RCL-d1fdd056b971"
+    },
+    "PILOT-5a587929df77": {
+      "pilot_id": "PILOT-5a587929df77",
+      "artifact_id": "ART-SMART-ALG",
+      "school_id": "SCH-BANGKOK-02",
+      "plan_id": "PLAN-7f57f4cb6147",
+      "stage": "PROMOTED",
+      "status": "FROZEN",
+      "created_by": "ops-li",
+      "created_at": "2026-10-06T18:43:15.157892+00:00",
+      "updated_at": "2026-10-06T18:43:15.241091+00:00",
+      "evidence": [
+        {
+          "evidence_id": "EV-be0e65bde70f",
+          "stage": "COMPATIBILITY_CHECK",
+          "metrics": {
+            "data_format_match": 1.0,
+            "language_pack_coverage": 1.0,
+            "runtime_capability": 1.0
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.203986+00:00",
+          "expires_at": "2026-10-09T18:43:15.203986+00:00",
+          "note": ""
+        },
+        {
+          "evidence_id": "EV-ce5ecc582464",
+          "stage": "SMALL_SCALE_VALIDATION",
+          "metrics": {
+            "success_rate": 0.96,
+            "error_count": 3
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.212964+00:00",
+          "expires_at": "2026-10-09T18:43:15.212964+00:00",
+          "note": ""
+        },
+        {
+          "evidence_id": "EV-134e9de1e9c9",
+          "stage": "OBSERVATION",
+          "metrics": {
+            "stability_score": 0.94,
+            "incident_count": 0
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.221525+00:00",
+          "expires_at": "2026-10-09T18:43:15.221525+00:00",
+          "note": ""
+        },
+        {
+          "evidence_id": "EV-f79565e2398f",
+          "stage": "ROLLOUT_REVIEW",
+          "metrics": {
+            "review_score": 0.91
+          },
+          "collected_by": "qa-chen",
+          "collected_at": "2026-10-06T18:43:15.232056+00:00",
+          "expires_at": "2026-10-09T18:43:15.232056+00:00",
+          "note": ""
+        }
+      ],
+      "transitions": [
+        {
+          "kind": "ADVANCE",
+          "from_stage": "COMPATIBILITY_CHECK",
+          "to_stage": "SMALL_SCALE_VALIDATION",
+          "actor": "ops-li",
+          "reason": "",
+          "at": "2026-10-06T18:43:15.208024+00:00"
+        },
+        {
+          "kind": "ADVANCE",
+          "from_stage": "SMALL_SCALE_VALIDATION",
+          "to_stage": "OBSERVATION",
+          "actor": "ops-li",
+          "reason": "",
+          "at": "2026-10-06T18:43:15.217492+00:00"
+        },
+        {
+          "kind": "ADVANCE",
+          "from_stage": "OBSERVATION",
+          "to_stage": "ROLLOUT_REVIEW",
+          "actor": "ops-li",
+          "reason": "",
+          "at": "2026-10-06T18:43:15.226770+00:00"
+        },
+        {
+          "kind": "ADVANCE",
+          "from_stage": "ROLLOUT_REVIEW",
+          "to_stage": "PROMOTED",
+          "actor": "ops-li",
+          "reason": "",
+          "at": "2026-10-06T18:43:15.236347+00:00"
+        },
+        {
+          "kind": "FREEZE",
+          "from_stage": "PROMOTED",
+          "to_stage": "PROMOTED",
+          "actor": "sec-wu",
+          "reason": "组件在弱网下泄漏学生答题缓存",
+          "at": "2026-10-06T18:43:15.241091+00:00"
+        }
+      ],
+      "exemptions": [],
+      "recall_id": "RCL-d1fdd056b971"
+    }
+  },
+  "freezes": {
+    "FRZ-7b97487fa110": {
+      "freeze_id": "FRZ-7b97487fa110",
+      "artifact_id": "ART-SMART-ALG",
+      "school_id": "SCH-HANOI-01",
+      "pilot_id": "PILOT-ce60c6b8d19b",
+      "reason": "组件在弱网下泄漏学生答题缓存",
+      "issued_by": "sec-wu",
+      "issued_at": "2026-10-06T18:43:15.241091+00:00",
+      "status": "ACTIVE"
+    },
+    "FRZ-89aea0ad9d06": {
+      "freeze_id": "FRZ-89aea0ad9d06",
+      "artifact_id": "ART-SMART-ALG",
+      "school_id": "SCH-BANGKOK-02",
+      "pilot_id": "PILOT-5a587929df77",
+      "reason": "组件在弱网下泄漏学生答题缓存",
+      "issued_by": "sec-wu",
+      "issued_at": "2026-10-06T18:43:15.241091+00:00",
+      "status": "ACTIVE"
+    }
+  },
+  "recalls": {
+    "RCL-d1fdd056b971": {
+      "recall_id": "RCL-d1fdd056b971",
+      "artifact_id": "ART-SMART-ALG",
+      "reason": "组件在弱网下泄漏学生答题缓存",
+      "severity": "SEVERE",
+      "issued_by": "sec-wu",
+      "issued_at": "2026-10-06T18:43:15.241091+00:00",
+      "adopters": [
+        {
+          "pilot_id": "PILOT-ce60c6b8d19b",
+          "school_id": "SCH-HANOI-01",
+          "stage": "OBSERVATION",
+          "prior_status": "ACTIVE"
+        },
+        {
+          "pilot_id": "PILOT-5a587929df77",
+          "school_id": "SCH-BANGKOK-02",
+          "stage": "PROMOTED",
+          "prior_status": "PROMOTED"
+        }
+      ],
+      "status": "INITIATED"
+    }
+  }
+}
